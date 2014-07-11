@@ -29,4 +29,5 @@ Today we will be making a Tic Tac Toe game using all of this.
 
 
 ##Resources
-* [https://github.com/wdi-sf-july/notes/tree/master/week_01_programming_fundamentals_with_the_web/day_4_html_css_dom_events/dusk_dom_events](https://github.com/wdi-sf-july/notes/tree/master/week_01_programming_fundamentals_with_the_web/day_4_html_css_dom_events/dusk_dom_events)
+* [DOM Event Notes](https://github.com/wdi-sf-july/notes/tree/master/week_01_programming_fundamentals_with_the_web/day_4_html_css_dom_events/dusk_dom_events)
+* [Calculator Solution](http://jsbin.com/nibajulu/2/edit)
