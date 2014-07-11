@@ -18,7 +18,7 @@ Today we will be making a Tic Tac Toe game using all of this.
 2. Before you even start working with javascript, construct the gameboard. The gameboard page should include the 3x3 grid, and at minimum a reset button. Using `id` and `class` on clickable elements will help you wire this up in javascript afterwards.
 3. Javascript portion will be next
 	* Locate the element first to use it within your app. Think about using `document.getElementById` or `document.getElementsByClassName` to locate your target elements. Try this in your console to make sure your selection works.
-	* After finding the elements, start writing logic to use the `onClick` function against those elements.
+	* After finding the elements, start writing logic to use the `onclick` function against those elements.
 	* You will also need a variable to keep track of moves. As this will be used to indicate whether or not to draw an `X` or an `O`
 
 ##Bonus
