@@ -1,0 +1,86 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+.wrapper {
+	position: relative;
+	width: 100%;
+	text-align: center;
+	padding: 5% 0;
+}
+
+/*
+	make board and boxes look prettier
+	better fonts
+	animations for adding content
+	to boxes - use transitions
+*/
+
+.board {
+	width: 306px;
+	height: auto;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.box {
+	height: 100px;
+	width: 100px;
+	float: left;
+	border: 1px solid black;
+	text-align: center;
+	line-height: 100px;
+	font-size: 3em;
+}
+
+.x {
+	color: red;
+}
+
+.o {
+	color: blue;
+	content: 'O';
+}
+
+/*
+	prettier control buttons
+*/
+
+.controls {
+	margin: 2em;
+}
+/* class for winning message
+class for each winning square
+animate winning boxes - requires a js function
+animate stars images so :before stars move up left;
+and :after stars move down right;
+to make msg transitions work, use something
+other than display: none to hide
+*/
+
+.msg {
+	position: absolute;
+	width: 20%;
+	margin: 0 40%;
+	top: 35%;
+	text-align: center;
+	font-size: 3em;
+	transition: all .5s ease;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+}
+.msg:before {
+	content: ''; /*for animated stars top*/
+}
+.msg:after {
+	content: ''; /*for animated stars bottom*/
+}
+.hidden {
+	display: none;
+}
