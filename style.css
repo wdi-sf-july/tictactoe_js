@@ -1,7 +1,6 @@
 /*yellow: rgba(243,156,18,1.0);
 purple: rgba(154, 18, 179, 1.0);*/
 
-
 * {
 	box-sizing: border-box;
 }
@@ -22,13 +21,6 @@ h1 {
 	font-family: 'Lobster';
 	color: rgba(154, 18, 179, .75);
 }
-
-/*
-	make board and boxes look prettier
-	better fonts
-	animations for adding content
-	to boxes - use transitions
-*/
 
 .board {
 	width: 310px;
@@ -103,13 +95,8 @@ h1 {
 .button.reset:hover {
 	background: #bbb;
 }
-/* class for winning message
-class for each winning square
-animate winning boxes - requires a js function
-animate stars images so :before stars move up left;
-and :after stars move down right;
-to make msg transitions work, use something
-other than display: none to hide
+/* 
+	Messages
 */
 
 .msg {
@@ -166,8 +153,9 @@ other than display: none to hide
 }
 
 /*
-	Stars animations
+	Animations
 */
+
 @-webkit-keyframes up-left {
   0%   { 
   	top: -20px;
