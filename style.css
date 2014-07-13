@@ -22,7 +22,7 @@ body {
 */
 
 .board {
-	width: 306px;
+	width: 310px;
 	height: auto;
 	overflow: hidden;
 	margin: 0 auto;
@@ -32,10 +32,16 @@ body {
 	height: 100px;
 	width: 100px;
 	float: left;
-	border: 1px solid black;
+	border: 3px solid white;
 	text-align: center;
 	line-height: 100px;
 	font-size: 3em;
+	background: #eee;
+}
+.box:hover {
+	cursor: pointer;
+	background: #ddd;
+	border-color: red;
 }
 
 .x {
