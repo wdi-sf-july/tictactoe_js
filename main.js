@@ -34,7 +34,7 @@ window.onload = function() {
 	// Write checkDraw last
 	// this doesn't work yet
 	var checkDraw = function(playX, playO) {
-		if (playX.length + playY.length >= 9 && !checkWin) {
+		if (playsX.length + playsO.length >= 9) {
 			console.log("Draw!");
 			showMessage("Draw!");
 			return true;
@@ -54,6 +54,7 @@ window.onload = function() {
 		}
 		playsX = [];
 		playsO = [];
+		turn = true;
 	};
 
 	// Show the proper win message
@@ -70,6 +71,11 @@ window.onload = function() {
 		el.className += ' hidden';
 	};
 
+	var executeWin = function(player, winningCombo) {
+		console.log(player + ' wins!');
+		displayWinningBoxes(winningCombo);
+		showMessage(player + " wins!");
+	};
 
 	// Check current plays for a winning combination
 	// parseInt on values before comparing to improve performance
@@ -85,55 +91,31 @@ window.onload = function() {
 		}
 
 		if ((play.indexOf('1') !== -1) && (play.indexOf('2') !== -1) && (play.indexOf('3') !== -1)) {
-			playing = false;
-			console.log(player + ' wins!');
-			displayWinningBoxes(winningCombos[0]);
-			showMessage(player + " wins!");
+			executeWin(player, winningCombos[0])
 			return true;
 		} else if (play.indexOf('1') !== -1 && play.indexOf('4') !== -1 && play.indexOf('7') !== -1) {
-			playing = false;
-			console.log(player + ' wins!');
-			showMessage(player + " wins!");
-			displayWinningBoxes(winningCombos[1]);
+			executeWin(player, winningCombos[1]);
 			return true;
 		} else if (play.indexOf('1') !== -1 && play.indexOf('5') !== -1 && play.indexOf('9') !== -1) {
-			playing = false;
-			console.log(player + ' wins!');
-			showMessage(player + " wins!");
-			displayWinningBoxes(winningCombos[2]);
+			executeWin(player, winningCombos[2]);
 			return true;
 		} else if (play.indexOf('4') !== -1 && play.indexOf('5') !== -1 && play.indexOf('6') !== -1) {
-			playing = false;
-			console.log(player + ' wins!');
-			showMessage(player + " wins!");
-			displayWinningBoxes(winningCombos[3]);
+			executeWin(player, winningCombos[3]);
 			return true;
 		} else if (play.indexOf('3') !== -1 && play.indexOf('6') !== -1 && play.indexOf('9') !== -1) {
-			playing = false;
-			console.log(player + ' wins!');
-			showMessage(player + " wins!");
-			displayWinningBoxes(winningCombos[4]);
+			executeWin(player, winningCombos[4]);
 			return true;
 		} else if (play.indexOf('3') !== -1 && play.indexOf('5') !== -1 && play.indexOf('7') !== -1) {
-			playing = false;
-			console.log(player + ' wins!');
-			showMessage(player + " wins!");
-			displayWinningBoxes(winningCombos[5]);
+			executeWin(player, winningCombos[5]);
 			return true;
 		} else if (play.indexOf('7') !== -1 && play.indexOf('8') !== -1 && play.indexOf('9') !== -1) {
-			playing = false;
-			console.log(player + ' wins!');
-			showMessage(player + " wins!");
-			displayWinningBoxes(winningCombos[6]);
+			executeWin(player, winningCombos[6]);
 			return true;
 		} else if (play.indexOf('2') !== -1 && play.indexOf('5') !== -1 && play.indexOf('8') !== -1) {
-			playing = false;
-			console.log(player + ' wins!');
-			showMessage(player + " wins!");
-			displayWinningBoxes(winningCombos[7]);
+			executeWin(player, winningCombos[7]);
 			return true;
 		} else {
-			checkDraw(playX, playO);
+			checkDraw(playsX, playsO);
 			return false;
 		}
 	};
