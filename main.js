@@ -24,9 +24,6 @@ window.onload = function() {
 		[2,5,8]
 	];
 
-	// TODO:
-	// refactor checkWin - create the winning combo [arr] of winning [arr]
-
 	// Check if the game has ended in a draw
 	var checkDraw = function(playX, playO) {
 		if (playsX.length + playsO.length >= 9) {
@@ -79,8 +76,6 @@ window.onload = function() {
 
 	// Check current plays for a winning combination
 	// parseInt on values before comparing to improve performance
-	// consider keeping winning plays in an array of arrays - will that reduce the if/else?
-	// each of these if conditionals is essentially the same except comparing against a differnt winning combo
 	var checkWin = function(play) {
 
 		if (play === playsX) {
@@ -122,6 +117,7 @@ window.onload = function() {
 	// add click handlers to all boxes
 	// check turn and whether the box is already filled
 	// fill the box, push the play into the proper plays array
+	// toggle turn
 	// check for a win
 	for (var i = 0; i < boxes.length; i++) {
 		boxes[i].onclick = function(e) {
