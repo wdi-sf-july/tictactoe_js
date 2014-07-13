@@ -1,3 +1,7 @@
+/*yellow: rgba(243,156,18,1.0);
+purple: rgba(154, 18, 179, 1.0);*/
+
+
 * {
 	box-sizing: border-box;
 }
@@ -5,13 +9,17 @@ body {
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
-	font-family: sans-serif;
+	font-family: 'Oswlad', sans-serif;
 }
 .wrapper {
 	position: relative;
 	width: 100%;
 	text-align: center;
 	padding: 5% 0;
+}
+
+h1 {
+	font-family: 'Lobster';
 }
 
 /*
@@ -44,13 +52,21 @@ body {
 	border-color: red;
 }
 
+.winning-play {
+	background: red;
+	color: white;
+	transition: all .5s ease;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+}
+
 .x {
-	color: red;
+	color: rgba(243,156,18,1.0);
 }
 
 .o {
-	color: blue;
-	content: 'O';
+	color: rgba(154, 18, 179, 1.0);
 }
 
 /*
@@ -59,6 +75,23 @@ body {
 
 .controls {
 	margin: 2em;
+}
+.button {
+	background: #eee;
+	border: 2px solid #999;
+	padding: 1em;
+	border-radius: 6px;
+}
+
+.button.new-game {
+	background: rgba(154, 18, 179, .75);
+	color: white;
+}
+.button:hover {
+	background: rgba(154, 18, 179, 1.0);
+}
+.button.reset:hover {
+	background: #bbb;
 }
 /* class for winning message
 class for each winning square
@@ -75,18 +108,93 @@ other than display: none to hide
 	margin: 0 40%;
 	top: 35%;
 	text-align: center;
-	font-size: 3em;
+	font-size: 6em;
+	font-family: 'Lobster';
+	color: rgba(243,156,18,1.0);
+	text-shadow: 0 0 30px rgba(154, 18, 179, 1.0);;
 	transition: all .5s ease;
 	-webkit-transition: all .5s ease;
 	-moz-transition: all .5s ease;
 	-ms-transition: all .5s ease;
+	overflow: visible;
 }
 .msg:before {
+	background: url(images/stars.png) top left no-repeat;
+	background-size: cover;
 	content: ''; /*for animated stars top*/
+	display: block;
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	height: 60px;
+	width: 60px;
+	-webkit-animation: up-left 2s 1;
+	-moz-animation: up-left 2s 1;
+	-ms-animation: up-left 2s 1;
+	animation: up-left 2.2s 1;
 }
 .msg:after {
+	background: url(images/stars.png) top left no-repeat;
+	background-size: cover;
 	content: ''; /*for animated stars bottom*/
+	display: block;
+	position: absolute;
+	bottom: -40px;
+	right: -40px;
+	height: 60px;
+	width: 60px;
+	-webkit-animation: down-right 2s 1;
+	-moz-animation: down-right 2s 1;
+	-ms-animation: down-right 2s 1;
+	animation: down-right 2.2s 1;
 }
 .hidden {
 	display: none;
 }
+
+/*
+	Stars animations
+*/
+@keyframes up-left {
+  0%   { 
+  	top: -20px;
+  	left: -20px; 
+  }
+  100% { 
+		top: -40px;
+  	left: -60px;
+  }
+}
+
+@-webkit-keyframes up-left {
+  0%   { 
+  	top: -20px;
+  	left: -20px; 
+  }
+  100% { 
+		top: -40px;
+  	left: -60px;
+  }
+}
+
+@-webkit-keyframes down-right {
+  0%   { 
+  	bottom: -40px;
+  	right: -40px; 
+  }
+  100% { 
+		bottom: -60px;
+  	right: -80px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

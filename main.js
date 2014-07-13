@@ -11,6 +11,7 @@ window.onload = function() {
 	var turn = true;
 	var playsX = [];
 	var playsO = [];
+	var winningCombos = [];
 
 	// TODO:
 	// connect draw notification
@@ -27,6 +28,10 @@ window.onload = function() {
 			showMessage("Draw!");
 			return true;
 		} 
+	};
+
+	var displayWin = function() {
+
 	};
 
 	var clearGame = function() {
