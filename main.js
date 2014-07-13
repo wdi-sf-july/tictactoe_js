@@ -25,14 +25,9 @@ window.onload = function() {
 	];
 
 	// TODO:
-	// connect draw notification
-	// animate winning boxes - function to change class, pass in winning combo [arr]
-	// to apply on win to boxes that match the winning combination
 	// refactor checkWin - create the winning combo [arr] of winning [arr]
-	// alternate onclick syntax like resetBtn.on('click', clearGame) ?
 
-	// Write checkDraw last
-	// this doesn't work yet
+	// Check if the game has ended in a draw
 	var checkDraw = function(playX, playO) {
 		if (playsX.length + playsO.length >= 9) {
 			console.log("Draw!");
@@ -41,12 +36,14 @@ window.onload = function() {
 		} 
 	};
 
+	// Highlight the boxes in the winning play
 	var displayWinningBoxes = function(plays) {
 		for (var i = 0; i < plays.length; i++) {
 			document.querySelector('.box[data-position="' + plays[i] + '"]').className += ' winning-play';
 		}
 	};
 
+	// Clear all added styles, content and reset the turn
 	var clearGame = function() {
 		for (var i = 0; i < boxes.length; i++) {
 			boxes[i].innerHTML = '';
@@ -57,7 +54,8 @@ window.onload = function() {
 		turn = true;
 	};
 
-	// Show the proper win message
+	// Show the proper win or draw message
+	// setTimeout hides the message again aftr 2 seconds
 	var showMessage = function(msg) {
 		if (msg !== '') {
 			winMsg.innerHTML = msg;
@@ -67,10 +65,12 @@ window.onload = function() {
 		}
 	};
 
+	// hide the messages
 	var hide = function(el) {
 		el.className += ' hidden';
 	};
 
+	// Highlight winning boxes and display win message
 	var executeWin = function(player, winningCombo) {
 		console.log(player + ' wins!');
 		displayWinningBoxes(winningCombo);
@@ -81,7 +81,6 @@ window.onload = function() {
 	// parseInt on values before comparing to improve performance
 	// consider keeping winning plays in an array of arrays - will that reduce the if/else?
 	// each of these if conditionals is essentially the same except comparing against a differnt winning combo
-	// keep winning combos in an array and loop through comparisons, passing in each winning combo?
 	var checkWin = function(play) {
 
 		if (play === playsX) {
@@ -120,6 +119,10 @@ window.onload = function() {
 		}
 	};
 
+	// add click handlers to all boxes
+	// check turn and whether the box is already filled
+	// fill the box, push the play into the proper plays array
+	// check for a win
 	for (var i = 0; i < boxes.length; i++) {
 		boxes[i].onclick = function(e) {
 
