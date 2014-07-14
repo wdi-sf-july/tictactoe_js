@@ -1,0 +1,280 @@
+/*yellow: rgba(243,156,18,1.0);
+purple: rgba(154, 18, 179, 1.0);*/
+
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: 'Oswlad', sans-serif;
+}
+.wrapper {
+	position: relative;
+	width: 100%;
+	text-align: center;
+	padding: 2.5% 0;
+}
+
+h1 {
+	font-family: 'Lobster';
+	color: rgba(154, 18, 179, .75);
+}
+
+.board {
+	width: 310px;
+	height: auto;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.box {
+	height: 100px;
+	width: 100px;
+	float: left;
+	border: 3px solid white;
+	text-align: center;
+	line-height: 100px;
+	font-size: 3em;
+	background: #eee;
+	transition: all .5s ease;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+}
+.box:hover {
+	cursor: pointer;
+	background: #ddd;
+	border-color: red;
+}
+
+.box:active {
+	border-width:0px;
+	width: 101px;
+	height: 101px;
+}
+
+.winning-play, .winning-play:hover {
+	background: red;
+	color: white;
+	border-color: rgba(243,156,18,1.0);
+	-webkit-animation: spin-3d 1s 1;
+	-moz-animation: spin-3d 1s 1;
+	-ms-animation: spin-3d 1s 1;
+	animation: spin-3d 1s 1;
+}
+
+.x {
+	color: rgba(243,156,18,1.0);
+}
+
+.o {
+	color: rgba(154, 18, 179, 1.0);
+}
+
+.controls {
+	margin: 2em;
+}
+.button {
+	background: #eee;
+	border: 2px solid #999;
+	padding: 1em;
+	border-radius: 6px;
+	outline: none;
+}
+
+.button.new-game {
+	background: rgba(154, 18, 179, .75);
+	color: white;
+}
+.button:hover {
+	background: rgba(154, 18, 179, 1.0);
+	cursor: pointer;
+}
+.button.reset:hover {
+	background: #bbb;
+}
+/* 
+	Messages
+*/
+
+.msg {
+	position: absolute;
+	width: 20%;
+	margin: 0 40%;
+	top: 35%;
+	text-align: center;
+	font-size: 6em;
+	font-family: 'Lobster';
+	color: rgba(243,156,18,1.0);
+	text-shadow: 0 0 30px rgba(154, 18, 179, 1.0);
+	letter-spacing: 7px;
+	transition: all .5s ease;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	overflow: visible;
+	-webkit-text-stroke: 3px rgba(154, 18, 179, 1.0);
+}
+.msg:before {
+	background: url(images/stars.png) top left no-repeat;
+	background-size: cover;
+	content: ''; /*for animated stars top*/
+	display: block;
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	height: 60px;
+	width: 60px;
+
+	-webkit-animation: up-left 2s 1;
+	-moz-animation: up-left 2s 1;
+	-ms-animation: up-left 2s 1;
+	animation: up-left 2.2s 1;
+}
+.msg:after {
+	background: url(images/stars.png) top left no-repeat;
+	background-size: cover;
+	content: ''; /*for animated stars bottom*/
+	display: block;
+	position: absolute;
+	bottom: -40px;
+	right: -40px;
+	height: 60px;
+	width: 60px;
+	-webkit-animation: down-right 2s 1;
+	-moz-animation: down-right 2s 1;
+	-ms-animation: down-right 2s 1;
+	animation: down-right 2.2s 1;
+}
+.hidden {
+	display: none;
+}
+
+header {
+	margin: 0;
+	padding: 1em;
+
+}
+header span {
+	display: inline-block;
+	margin-right: .5em;
+	padding-left: .5em;
+}
+.player {
+	border-left: 1px solid #999;
+}
+.player:first-child {
+	border-left: none;
+}
+
+/*
+	Animations
+*/
+
+@-webkit-keyframes up-left {
+  0%   { 
+  	top: -20px;
+  	left: -20px; 
+  }
+  100% { 
+		top: -40px;
+  	left: -60px;
+  }
+}
+@-ms-keyframes up-left {
+  0%   { 
+  	top: -20px;
+  	left: -20px; 
+  }
+  100% { 
+		top: -40px;
+  	left: -60px;
+  }
+}
+@-moz-keyframes up-left {
+  0%   { 
+  	top: -20px;
+  	left: -20px; 
+  }
+  100% { 
+		top: -40px;
+  	left: -60px;
+  }
+}
+@keyframes up-left {
+  0%   { 
+  	top: -20px;
+  	left: -20px; 
+  }
+  100% { 
+		top: -40px;
+  	left: -60px;
+  }
+}
+
+@-webkit-keyframes down-right {
+  0%   { 
+  	bottom: -40px;
+  	right: -40px; 
+  }
+  100% { 
+		bottom: -60px;
+  	right: -80px;
+  }
+}
+@-moz-keyframes down-right {
+  0%   { 
+  	bottom: -40px;
+  	right: -40px; 
+  }
+  100% { 
+		bottom: -60px;
+  	right: -80px;
+  }
+}
+@-ms-keyframes down-right {
+  0%   { 
+  	bottom: -40px;
+  	right: -40px; 
+  }
+  100% { 
+		bottom: -60px;
+  	right: -80px;
+  }
+}
+@keyframes down-right {
+  0%   { 
+  	bottom: -40px;
+  	right: -40px; 
+  }
+  100% { 
+		bottom: -60px;
+  	right: -80px;
+  }
+}
+
+/*
+	3d spin for winning boxes
+*/
+
+@-webkit-keyframes spin-3d {
+	0% {
+		transform: rotateX(0,0,0);
+	}
+	100% {
+		transform: rotateX(180deg);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

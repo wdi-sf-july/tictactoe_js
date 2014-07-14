@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe!!!</title>
+  <link href='http://fonts.googleapis.com/css?family=Lobster|Oswald:400,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+			<div class="tally">
+				<span class="player">X: </span><span id="x-tally">0</span>
+				<span class="player">O: </span><span id="y-tally">0</span>
+			</div>
+		</header>
+	<div class="wrapper">
+		<h1>Tic Tac Toe</h1>
+
+		<div class="board">
+			<div class="box" data-position="1"></div>
+			<div class="box" data-position="2"></div>
+			<div class="box" data-position="3"></div>
+			<div class="box" data-position="4"></div>
+			<div class="box" data-position="5"></div>
+			<div class="box" data-position="6"></div>
+			<div class="box" data-position="7"></div>
+			<div class="box" data-position="8"></div>
+			<div class="box" data-position="9"></div>
+		</div>
+	
+		<div class="controls">
+			<button id="reset" class="button reset" type="button">Reset</button>
+			<button id="new-game-btn" class="button new-game" type="button">New Game</button>
+		</div><!-- /.controls -->
+
+		<div id="win-msg" class="msg hidden"></div>
+		<div id="new-game-msg" class="msg hidden">New Game!</div>
+
+	</div><!-- /.wrapper -->
+
+	<script src="main.js"></script>
+</body>
+</html>
