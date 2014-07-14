@@ -152,6 +152,23 @@ h1 {
 	display: none;
 }
 
+header {
+	margin: 0;
+	padding: 1em;
+
+}
+header span {
+	display: inline-block;
+	margin-right: .5em;
+	padding-left: .5em;
+}
+.player {
+	border-left: 1px solid #999;
+}
+.player:first-child {
+	border-left: none;
+}
+
 /*
 	Animations
 */

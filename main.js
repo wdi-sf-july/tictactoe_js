@@ -6,6 +6,8 @@ window.onload = function() {
 	var newGameBtn = document.getElementById('new-game-btn');
 	var winMsg = document.getElementById('win-msg');
 	var newGameMsg = document.getElementById('new-game-msg');
+	var xTally = document.querySelector('#x-tally');
+	var yTally = document.querySelector('#y-tally');
 
 	// track play
 	var turn = true;
@@ -72,6 +74,12 @@ window.onload = function() {
 		console.log(player + ' wins!');
 		displayWinningBoxes(winningCombo);
 		showMessage(player + " wins!");
+		if (player === 'X') {
+			console.log("update x");
+			xTally.innerHTML = parseInt(xTally.innerHTML) + 1;
+		} else {
+			yTally.innerHTML = parseInt(yTally.innerHTML) + 1;
+		}
 	};
 
 	// Check current plays for a winning combination
@@ -84,30 +92,46 @@ window.onload = function() {
 			player = "O";
 		}
 
-		if ((play.indexOf('1') !== -1) && (play.indexOf('2') !== -1) && (play.indexOf('3') !== -1)) {
-			executeWin(player, winningCombos[0])
-			return true;
-		} else if (play.indexOf('1') !== -1 && play.indexOf('4') !== -1 && play.indexOf('7') !== -1) {
-			executeWin(player, winningCombos[1]);
-			return true;
-		} else if (play.indexOf('1') !== -1 && play.indexOf('5') !== -1 && play.indexOf('9') !== -1) {
-			executeWin(player, winningCombos[2]);
-			return true;
-		} else if (play.indexOf('4') !== -1 && play.indexOf('5') !== -1 && play.indexOf('6') !== -1) {
-			executeWin(player, winningCombos[3]);
-			return true;
-		} else if (play.indexOf('3') !== -1 && play.indexOf('6') !== -1 && play.indexOf('9') !== -1) {
-			executeWin(player, winningCombos[4]);
-			return true;
-		} else if (play.indexOf('3') !== -1 && play.indexOf('5') !== -1 && play.indexOf('7') !== -1) {
-			executeWin(player, winningCombos[5]);
-			return true;
-		} else if (play.indexOf('7') !== -1 && play.indexOf('8') !== -1 && play.indexOf('9') !== -1) {
-			executeWin(player, winningCombos[6]);
-			return true;
-		} else if (play.indexOf('2') !== -1 && play.indexOf('5') !== -1 && play.indexOf('8') !== -1) {
-			executeWin(player, winningCombos[7]);
-			return true;
+		if ((play.indexOf('1') !== -1) 
+			&& (play.indexOf('2') !== -1) 
+			&& (play.indexOf('3') !== -1)) {
+				executeWin(player, winningCombos[0])
+				return true;
+		} else if (play.indexOf('1') !== -1 
+			&& play.indexOf('4') !== -1 
+			&& play.indexOf('7') !== -1) {
+				executeWin(player, winningCombos[1]);
+				return true;
+		} else if (play.indexOf('1') !== -1 
+			&& play.indexOf('5') !== -1 
+			&& play.indexOf('9') !== -1) {
+				executeWin(player, winningCombos[2]);
+				return true;
+		} else if (play.indexOf('4') !== -1 
+			&& play.indexOf('5') !== -1 
+			&& play.indexOf('6') !== -1) {
+				executeWin(player, winningCombos[3]);
+				return true;
+		} else if (play.indexOf('3') !== -1 
+			&& play.indexOf('6') !== -1 
+			&& play.indexOf('9') !== -1) {
+				executeWin(player, winningCombos[4]);
+				return true;
+		} else if (play.indexOf('3') !== -1 
+			&& play.indexOf('5') !== -1 
+			&& play.indexOf('7') !== -1) {
+				executeWin(player, winningCombos[5]);
+				return true;
+		} else if (play.indexOf('7') !== -1 
+			&& play.indexOf('8') !== -1 
+			&& play.indexOf('9') !== -1) {
+				executeWin(player, winningCombos[6]);
+				return true;
+		} else if (play.indexOf('2') !== -1 
+			&& play.indexOf('5') !== -1 
+			&& play.indexOf('8') !== -1) {
+				executeWin(player, winningCombos[7]);
+				return true;
 		} else {
 			checkDraw(playsX, playsO);
 			return false;
@@ -141,7 +165,11 @@ window.onload = function() {
 	}
 
 	// Game reset; used addEventListener to limit to one line
-	resetBtn.addEventListener('click', clearGame);
+	resetBtn.onclick = function() {
+		clearGame();
+		xTally.innerHTML = '0';
+		yTally.innerHTML = '0';
+	};
 
 	// New Game
 	// same as reset, but show the new game message
